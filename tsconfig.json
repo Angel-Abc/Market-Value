@@ -7,6 +7,18 @@
       "jsx": "react",
       "allowJs": true,
       "moduleResolution": "nodenext",
-      "sourceMap": true
+      "sourceMap": true,
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,
+      "noEmit": false,
+      "resolveJsonModule": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["shadcn/*"]
+      }
     }
   }

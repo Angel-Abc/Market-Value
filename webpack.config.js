@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { stat } = require('fs')
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -15,7 +15,10 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            '@': path.resolve(__dirname, 'shadcn/'),
+        }
     },
     module: {
         rules: [
@@ -56,9 +59,15 @@ module.exports = {
         static: './dist',
         port: 3000
     },
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     optimization: {
         splitChunks: {
-            chunks: 'all'
+            chunks: 'all',
+            name: 'vendors'
         }
     }
 }
